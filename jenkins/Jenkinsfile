@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
@@ -12,10 +12,10 @@ pipeline {
                 sh 'mvn test'
             }
         }
+    }
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
             }
-        }
     }
