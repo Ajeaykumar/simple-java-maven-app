@@ -15,10 +15,12 @@ pipeline {
         stage("Complete"){
             steps{
                 echo 'Job Completed'
+            }
+        }
     }
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
             }
-    }
+        }
